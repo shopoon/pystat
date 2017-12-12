@@ -24,3 +24,5 @@ while c != 0:
         print("Hey {}, what are you talking about??".format(a))
 if c == 0:
     print("Game over. My number is {}".format(x))
+
+# This is comment
