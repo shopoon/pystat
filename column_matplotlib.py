@@ -7,16 +7,18 @@ import matplotlib as mpl
 mpl.rcParams["font.family"] = "AppleGothic"
 
 class Column:
-    def show(self, path):
-        data = pd.read_csv(path, encoding="ShiftJIS")
-        data_statistics = data.describe()
+    def __init__(self, path):
+        self.data = pd.read_csv(path, encoding="ShiftJIS")
+    def make_column(self):
+        data_statistics = self.data.describe()
         bar = plt.bar(range(3),
               data_statistics.loc["mean", ["HP", "こうげき", "ぼうぎょ"]],
               yerr=data_statistics.loc["std", ["HP", "こうげき", "ぼうぎょ"]],
               tick_label=["HP", u"こうげき", u"ぼうぎょ"]
               )
-        plt.show(bar)
+        return bar
 
 if __name__ == "__main__":
-    test = Column()
-    test.show("pokemon_status.csv")
+    test = Column("pokemon_status.csv")
+    graph = test.make_column()
+    plt.show(graph)
