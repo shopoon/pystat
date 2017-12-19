@@ -33,5 +33,7 @@ dependencies:
 - wheel=0.30.0=py36h5eb2c71_1
 - xz=5.2.3=h0278029_2
 - zlib=1.2.11=hf3cbc9b_2
-prefix: /Users/shoopoon/.pyenv/versions/anaconda3-4.2.0/envs/pystat
+- pip:
+  - wxpython==4.0.0b2
+prefix: /Users/miyaketakahito/.pyenv/versions/anaconda3-5.0.0/envs/pystat
 
