@@ -6,6 +6,12 @@ import matplotlib as mpl
 #日本語表示のためのフォント指定
 mpl.rcParams["font.family"] = "AppleGothic"
 
+#グラフの右と上の枠を削除
+plt.gca().spines['right'].set_visible(False)
+plt.gca().spines['top'].set_visible(False)
+plt.gca().yaxis.set_ticks_position('left')
+plt.gca().xaxis.set_ticks_position('bottom')
+
 class Column:
     def __init__(self, path):
         self.data = pd.read_csv(path, encoding="ShiftJIS")
