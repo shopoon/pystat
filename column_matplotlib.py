@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 
 #日本語表示のためのフォント指定
-mpl.rcParams["font.family"] = "AppleGothic"
+mpl.rcParams["font.family"] = "MS Gothic"
 
 #グラフの右と上の枠を削除
 plt.gca().spines['right'].set_visible(False)
@@ -20,7 +20,7 @@ class Column:
         bar = plt.bar(range(3),
               data_statistics.loc["mean", ["HP", "こうげき", "ぼうぎょ"]],
               yerr=data_statistics.loc["std", ["HP", "こうげき", "ぼうぎょ"]],
-              tick_label=["HP", u"こうげき", u"ぼうぎょ"]
+              tick_label=["HP", u"攻撃", u"防御"]
               )
         return bar
 
