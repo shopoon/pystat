@@ -8,11 +8,12 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigureCanvas
 from matplotlib.backends.backend_wx import NavigationToolbar2Wx
 from matplotlib.figure import Figure
+from column_matplotlib import *
 
 import wx
 
 #日本語表示のためのフォント指定
-mpl.rcParams["font.family"] = "AppleGothic"
+mpl.rcParams["font.family"] = "MS Gothic"
 
 class CanvasPanel(wx.Panel):
     def __init__(self, parent):
@@ -27,7 +28,14 @@ class CanvasPanel(wx.Panel):
 
 def selectMenu(event):
     if event.GetId() == 1:
-        print("開けないよーん")
+        openFileDialog = wx.FileDialog(frame, "Open", "", "", "",
+                                       wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
+
+        openFileDialog.ShowModal()
+        path = openFileDialog.GetPath()
+        openFileDialog.Destroy()
+        print(path + "からデータを読み込みました")
+
         #修正の必要あり、便宜的に今はsinカーブを表示
         frame_column = wx.Frame(frame, title = "column")
         panel_column = CanvasPanel(frame_column)
@@ -35,6 +43,10 @@ def selectMenu(event):
         s = numpy.sin(2 * numpy.pi * t)
         panel_column.axes.plot(t, s)
         frame_column.Show()
+
+        test = Column(path)
+        graph = test.make_column()
+        plt.show(graph)
 
 def run():
     global frame
