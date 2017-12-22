@@ -2,6 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+from filedialog import *
 
 #日本語表示のためのフォント指定
 mpl.rcParams["font.family"] = "MS Gothic"
@@ -25,6 +26,7 @@ class Column:
         return bar
 
 if __name__ == "__main__":
-    test = Column("pokemon_status.csv")
+    selected = selectData()
+    test = Column(selected)
     graph = test.make_column()
     plt.show(graph)
