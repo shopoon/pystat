@@ -14,7 +14,7 @@ from wx_table import *
 from pandas_opendata import *
 
 
-class CanvasPanel(wx.Panel):
+class XYPanel(wx.Panel):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent)
         self.figure = Figure()
@@ -41,12 +41,12 @@ if __name__ == "__main__":
 
     app = wx.App()
 
-    frame = NewFrame(None)
+    frame = TableFrame(None)
     frame.fill_in(que)
     frame.Show(True)
 
     fr = wx.Frame(None, title='test')
-    panel = CanvasPanel(fr)
+    panel = XYPanel(fr)
     panel.draw(que)
     fr.Show()
 

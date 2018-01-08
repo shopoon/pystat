@@ -13,7 +13,7 @@ class SimpleGrid(wx.grid.Grid):
         self.CreateGrid(colNo, rowNo)
 
 
-class NewFrame(wx.Frame):
+class TableFrame(wx.Frame):
     def __init__(self, parent, col_no = 20, row_no = 20):
         wx.Frame.__init__(self, parent, -1, "New Table", size=(800, 400))
         self.new_table = SimpleGrid(self, col_no, row_no)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     path = filedialog()
     que = Opendata(path.getpath())
     app = wx.App()
-    frame = NewFrame(None)
+    frame = TableFrame(None)
     frame.fill_in(que)
     frame.Show(True)
     app.MainLoop()
