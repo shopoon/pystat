@@ -3,9 +3,6 @@
 import wx
 
 
-def onButton(event):
-    print("Button pressed.")
-
 class filedialog:
     def getpath(self):
         app = wx.App()
