@@ -3,8 +3,8 @@
 import matplotlib
 matplotlib.use('WXAgg')
 
-from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigureCanvas
-from matplotlib.backends.backend_wx import NavigationToolbar2Wx
+from matplotlib.backends.backend_wxagg import Toolbar, FigureCanvasWxAgg as FigureCanvas
+#from matplotlib.backends.backend_wx import Toolbar
 from matplotlib.figure import Figure
 
 import wx
@@ -20,8 +20,18 @@ class XYPanel(wx.Panel):
         self.figure = Figure()
         self.axes = self.figure.add_subplot(111)
         self.canvas = FigureCanvas(self, -1, self.figure)
+
+        """
+        以下の#self.~のコメントを外すとmatplotlibのtoolbarを使えるが、
+        matplotlibのwx_compat.pyを書き変える必要がある
+        """
+
+        #self.toolbar = Toolbar(self.canvas)  # matplotlib toolbar
+        #self.toolbar.Realize() #self.toolbar.set_active([0,1])を足しても良い？
         self.sizer = wx.BoxSizer(wx.VERTICAL)
         self.sizer.Add(self.canvas, 1, wx.LEFT | wx.TOP | wx.GROW)
+        # Best to allow the toolbar to resize!
+        #self.sizer.Add(self.toolbar, 0, wx.GROW)
         self.SetSizer(self.sizer)
         self.Fit()
 
