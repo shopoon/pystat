@@ -12,10 +12,12 @@ class Open:
 
         app = wx.App()
 
-        fr1 = TableFrame(None)
+        #表の書き込み
+        fr1 = TableFrame(None, que)
         fr1.fill_in(que)
         fr1.Show(True)
 
+        #グラフ表示
         fr2 = wx.Frame(None, title='test')
         panel = XYPanel(fr2)
         panel.XYdraw(que)
