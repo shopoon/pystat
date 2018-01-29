@@ -18,7 +18,7 @@ class Open:
 
         fr2 = wx.Frame(None, title='test')
         panel = XYPanel(fr2)
-        panel.draw(que)
+        panel.XYdraw(que)
         fr2.Show()
 
         app.MainLoop()

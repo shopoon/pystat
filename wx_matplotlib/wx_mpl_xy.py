@@ -16,10 +16,13 @@ from pandas_opendata import *
 
 class XYPanel(wx.Panel):
     def __init__(self, parent):
+        self.parent = parent
         wx.Panel.__init__(self, parent)
         self.figure = Figure()
+        # self.figure.set_facecolor(0.9,0.9,1.0)
         self.axes = self.figure.add_subplot(111)
         self.canvas = FigureCanvas(self, -1, self.figure)
+        # self.canvas.SetBackgroundColour(wx.Colour(100, 255, 255))
 
         """
         以下の#self.~のコメントを外すとmatplotlibのtoolbarを使えるが、
@@ -35,14 +38,20 @@ class XYPanel(wx.Panel):
         self.SetSizer(self.sizer)
         self.Fit()
 
-    def draw(self, data):
-    # 課題：rangeの範囲やdata.table.ilocのrowの指定方法を考える
+    def XYdraw(self, data):
         x = []
         y = []
-        for c in range(4):
-            x.append(c+1)
-            y.append(data.table.iloc[2, c])
-        self.axes.plot(x, y)
+        for i in range(len(data.table.index)):
+            x_temp = []
+            y_temp = []
+            for c in range(len(data.table.columns)):
+                if c == 0:
+                    continue
+                x_temp.append(data.table.iloc[i, 0])
+                y_temp.append(data.table.iloc[i, c])
+                x.append(x_temp)
+                y.append(y_temp)
+            self.axes.plot(x, y)
 
 
 if __name__ == "__main__":
@@ -57,7 +66,7 @@ if __name__ == "__main__":
 
     fr = wx.Frame(None, title='test')
     panel = XYPanel(fr)
-    panel.draw(que)
+    panel.XYdraw(que)
     fr.Show()
 
     app.MainLoop()
