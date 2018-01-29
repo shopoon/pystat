@@ -23,10 +23,10 @@ class TableFrame(wx.Frame):
         データの大きさを読み取って、
         必要ならばtableの大きさを変えるようにしないといけない。
         """
-        for i in range(3):
+        for i in range(len(data.table.index)):
             self.new_table.SetRowLabelValue(i, str(i+1))
-        for r in range(3):
-            for c in range(4):
+        for r in range(len(data.table.index)):
+            for c in range(len(data.table.columns)):
                 val = data.table.iloc[r, c]
                 self.new_table.SetCellValue(r, c, str(val))
 
