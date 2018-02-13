@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
     app = wx.App()
 
-    frame = TableFrame(None)
+    frame = TableFrame(None,que)
     frame.fill_in(que)
     frame.Show(True)
 

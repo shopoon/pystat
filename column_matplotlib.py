@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 from filedialog import *
 
+
 #日本語表示のためのフォント指定
 mpl.rcParams["font.family"] = "MS Gothic"
 
