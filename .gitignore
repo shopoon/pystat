@@ -1,4 +1,0 @@
-# Exclude ideas directory of PyCharm
-.idea/
-.ropeproject/
-__pycache__/
