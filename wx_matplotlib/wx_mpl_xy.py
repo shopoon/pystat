@@ -49,9 +49,9 @@ class XYPanel(wx.Panel):
                     continue
                 x_temp.append(data.table.iloc[i, 0])
                 y_temp.append(data.table.iloc[i, c])
-                x.append(x_temp)
-                y.append(y_temp)
-            self.axes.plot(x, y)
+            x.append(x_temp)
+            y.append(y_temp)
+        self.axes.plot(x, y)
 
 
 if __name__ == "__main__":
