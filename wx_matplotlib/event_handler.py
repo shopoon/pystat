@@ -8,8 +8,7 @@ from wx_mpl_column import *
 
 class Open:
     def __init__(self):
-        self.__path = filedialog()
-        self.__que = Opendata(self.__path.getpath())
+        self.__que = Opendata(filedialog.getpath())
     def show(self):
         return
 

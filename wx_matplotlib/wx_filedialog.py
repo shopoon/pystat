@@ -4,6 +4,7 @@ import wx
 
 
 class filedialog:
+    @classmethod
     def getpath(self):
         app = wx.App()
 
@@ -21,5 +22,4 @@ class filedialog:
 
 
 if __name__ == "__main__":
-    test = filedialog()
-    print(test.getpath())
+   print(filedialog.getpath())

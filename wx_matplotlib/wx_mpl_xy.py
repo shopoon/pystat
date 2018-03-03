@@ -55,8 +55,7 @@ class XYPanel(wx.Panel):
 
 
 if __name__ == "__main__":
-    path = filedialog()
-    que = Opendata(path.getpath())
+    que = Opendata(filedialog.getpath())
 
     app = wx.App()
 

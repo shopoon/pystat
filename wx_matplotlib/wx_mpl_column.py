@@ -59,8 +59,7 @@ class BarPanel(wx.Panel):
 
 
 if __name__ == "__main__":
-    path = filedialog()
-    que = Opendata(path.getpath())
+    que = Opendata(filedialog.getpath())
 
     app = wx.App()
 
@@ -69,8 +68,8 @@ if __name__ == "__main__":
     frame.Show(True)
 
     fr = wx.Frame(None, title='test')
-    panel = XYPanel(fr)
-    panel.draw(que)
+    panel = BarPanel(fr)
+    panel.bar_draw(que)
     fr.Show()
 
     app.MainLoop()
