@@ -2,7 +2,15 @@ import pandas as pd
 
 class Opendata:
     def __init__(self, path):
-        self.table = pd.read_csv(path, encoding="ShiftJIS", header=None)
+        return
+
+class Opendata_bar(Opendata):
+    def __init__(self, path):
+        self.table = pd.read_csv(path, encoding="ShiftJIS", header=0)
+
+class Opendata_xy(Opendata):
+    def __init__(self, path):
+        self.table = pd.read_csv(path, encoding="ShiftJIS", header=None, index_col = 0)
 
 
 if __name__ == "__main__":

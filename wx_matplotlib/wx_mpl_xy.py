@@ -39,19 +39,13 @@ class XYPanel(wx.Panel):
         self.Fit()
 
     def XYdraw(self, data):
-        x = []
         y = []
         for i in range(len(data.table.index)):
-            x_temp = []
             y_temp = []
             for c in range(len(data.table.columns)):
-                if c == 0:
-                    continue
-                x_temp.append(data.table.iloc[i, 0])
                 y_temp.append(data.table.iloc[i, c])
-            x.append(x_temp)
             y.append(y_temp)
-        self.axes.plot(x, y)
+        self.axes.plot(data.table.index, y)
 
 
 if __name__ == "__main__":

@@ -45,15 +45,9 @@ class BarPanel(wx.Panel):
         """
         課題：
         1.
-        header = Noneでcsvファイルを開いている
-        （pandas_opendata.pyのOpendataのself.tableにて）
-        そのため、棒グラフの名前を取得する方法が無い。
-        グラフ毎にopenfileクラスを作るしかない？
-
-        2.
         カラムの色を1本ずつ変えたい
 
-        3.
+        2.
         エラーバーをSEMにする、片側だけ表示にする
         """
 
