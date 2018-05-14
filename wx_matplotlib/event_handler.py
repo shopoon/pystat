@@ -9,23 +9,26 @@ from wx_mpl_column import *
 class Open:
     def __init__(self):
         self.__que = Opendata(filedialog.getpath())
+
     def show(self):
-        return
+        #表の書き込み
+        #グラフ毎に表の設定も変えることになるのなら、変更必要かも
+        #app = wx.App() は継承後のクラスに毎回入れないとなぜかエラー出る
+        fr1 = TableFrame(None, self.que)
+        fr1.fill_in(self.que)
+        fr1.Show()
 
     @property
     def que(self):
         return self.__que
 
 class Open_xy(Open):
+    def __init__(self):
+        self.__que = Opendata_xy(filedialog.getpath())
+
     def show(self):
         app = wx.App()
-
-        #表の書き込み
-        #[課題] 表とグラフは別クラスすべきかもしれない
-        fr1 = TableFrame(None, self.que)
-        fr1.fill_in(self.que)
-        fr1.Show()
-
+        super().show()
         #xyグラフ表示
         fr2 = wx.Frame(None, title='test')
         panel = XYPanel(fr2)
@@ -34,15 +37,17 @@ class Open_xy(Open):
 
         app.MainLoop()
 
+    @property
+    def que(self):
+        return self.__que
+
 class Open_bar(Open):
+    def __init__(self):
+        self.__que = Opendata_bar(filedialog.getpath())
+
     def show(self):
         app = wx.App()
-
-        #表の書き込み
-        #[課題] 表とグラフは別クラスすべきかもしれない
-        fr1 = TableFrame(None, self.que)
-        fr1.fill_in(self.que)
-        fr1.Show()
+        super().show()
 
         #棒グラフ表示
         fr2 = wx.Frame(None, title='test')
@@ -51,3 +56,7 @@ class Open_bar(Open):
         fr2.Show()
 
         app.MainLoop()
+
+    @property
+    def que(self):
+        return self.__que
