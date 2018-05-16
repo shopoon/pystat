@@ -29,6 +29,7 @@ class Open_xy(Open):
     def show(self):
         app = wx.App()
         super().show()
+        
         #xyグラフ表示
         fr2 = wx.Frame(None, title='test')
         panel = XYPanel(fr2)
